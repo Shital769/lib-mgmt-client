@@ -1,0 +1,16 @@
+.main {
+  min-height: 70vh;
+  margin: 2rem 0;
+}
+
+.reg-info {
+  background: url("./assets/reg-bg.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+.reg-info > div {
+  background: rgba(0, 0, 0, 0.786);
+  color: white;
+  padding: 3rem;
+  border-radius: 10px;
+}
