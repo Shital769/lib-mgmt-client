@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Form, Modal, Row } from "react-bootstrap";
-import DashboardLayout from "../components/layout/DashboardLayout";
+import DashboardLayout from "../components/Layout/DashboardLayout";
 import { toast } from "react-toastify";
-import { updatePassword } from "../helpers/axiosHelper";
+import { updatePassword } from "../helpers/axiosHelpers";
 
 const Profile = () => {
   const [user, setUser] = useState();

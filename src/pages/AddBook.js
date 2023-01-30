@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 import { Button, Col, Form, Spinner } from "react-bootstrap"
-import DashboardLayout from "../components/layout/DashboardLayout"
+import DashboardLayout from "../components/Layout/DashboardLayout"
 import img from "../assets/reg-bg.jpg"
-import { addBook } from "../helpers/axiosHelper"
+import { addBook } from "../helpers/axiosHelpers"
 import { toast } from "react-toastify"
 
 const initialState = {

@@ -1,35 +1,37 @@
-import React, { useState } from "react"
-import { Button, Col, Container, Form, Row } from "react-bootstrap"
-import { InputField } from "../components/InputField/InputField"
-import { DefaultLayout } from "../components/Layout/DefaultLayout.js"
-import { Link, useNavigate } from "react-router-dom"
-import { loginUser } from "../helpers/axiosHelpers"
-import { toast } from "react-toastify"
+import React, { useState } from "react";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { InputField } from "../components/InputField/InputField";
+import { DefaultLayout } from "../components/Layout/DefaultLayout.js";
+import { Link, useNavigate } from "react-router-dom";
+import { loginUser } from "../helpers/axiosHelpers";
+import { toast } from "react-toastify";
 
 const Login = () => {
-  const [formData, setFormData] = useState({})
-  const navigate = useNavigate()
+  const [formData, setFormData] = useState({});
+  const navigate = useNavigate();
 
   const handleOnChange = (e) => {
-    const { name, value } = e.target
+    const { name, value } = e.target;
 
     setFormData({
       ...formData,
       [name]: value,
-    })
-  }
+    });
+  };
 
   const handleOnSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    const { status, message, user } = await loginUser(formData)
-    toast[status](message)
+    const { status, message, user } = await loginUser(formData);
 
     if (status === "success") {
-      sessionStorage.setItem("user", JSON.stringify(user))
-      navigate("/books")
+      sessionStorage.setItem("user", JSON.stringify(user));
+      toast.success(message);
+      navigate("/books");
+    } else {
+      toast.error(message);
     }
-  }
+  };
 
   const inputs = [
     {
@@ -47,7 +49,7 @@ const Login = () => {
       placeholder: "********",
       required: true,
     },
-  ]
+  ];
   return (
     <DefaultLayout>
       <Container>
@@ -85,7 +87,7 @@ const Login = () => {
         </Row>
       </Container>
     </DefaultLayout>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

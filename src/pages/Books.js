@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from "react"
-import { Container, Row } from "react-bootstrap"
-import BooksList from "../components/BooksList"
-import DashboardLayout from "../components/layout/DashboardLayout.js"
-import { getBooks } from "../helpers/axiosHelpers.js"
+import React, { useEffect, useState } from "react";
+import { Container, Row } from "react-bootstrap";
+import BooksList from "../components/BookList";
+import DashboardLayout from "../components/Layout/DashboardLayout";
+import { getBooks } from "../helpers/axiosHelpers.js";
 
 const Books = () => {
-  const [books, setBooks] = useState([])
+  const [books, setBooks] = useState([]);
 
   const fetchAllBooks = async () => {
-    const response = await getBooks()
+    const response = await getBooks();
 
-    setBooks(response.books)
-  }
+    setBooks(response.books);
+  };
 
   useEffect(() => {
-    fetchAllBooks()
-  }, [])
+    fetchAllBooks();
+  }, []);
 
   return (
     <DashboardLayout>
@@ -25,7 +25,7 @@ const Books = () => {
         </Row>
       </Container>
     </DashboardLayout>
-  )
-}
+  );
+};
 
-export default Books
+export default Books;

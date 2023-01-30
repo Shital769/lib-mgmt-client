@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react"
-import Sidebar from "../sidebar/Sidebar"
-import { Footer } from "./Footer"
-import { Header } from "./Header"
+import React, { useEffect, useState } from "react";
+import Sidebar from "../sidebar/Sidebar";
+import { Footer } from "./Footer";
+import { Header } from "./Header";
 
 const DashboardLayout = ({ children }) => {
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState({});
 
   useEffect(() => {
-    const u = JSON.parse(sessionStorage.getItem("user"))
+    const u = JSON.parse(sessionStorage.getItem("user"));
     if (u) {
-      setUser(u)
+      setUser(u);
     }
-  }, [])
+  }, []);
 
   return (
     <div className="dashboard-layout">
@@ -22,7 +22,7 @@ const DashboardLayout = ({ children }) => {
         <Footer />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default DashboardLayout
+export default DashboardLayout;

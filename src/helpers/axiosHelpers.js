@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const baseApiUrl =
-  process.env === "production" ? "/api/v1" : process.env.REACT_APP_ROOT_URL;
+  process.env === "production" ? "/api/v1" : "http://localhost:8000/api/v1";
 const userEP = baseApiUrl + "/user";
 const bookEp = baseApiUrl + "/book";
 const transactionEp = baseApiUrl + "/transaction";
@@ -33,6 +33,29 @@ export const postNewUser = async (userData) => {
 export const loginUser = async (userData) => {
   try {
     const { data } = await axios.post(userEP + "/login", userData);
+    return data;
+  } catch (error) {
+    return {
+      status: "error",
+      message: error.message,
+    };
+  }
+};
+
+export const updatePassword = async (passInfo) => {
+  try {
+    const userId = getUserId();
+    if (!userId) {
+      return {
+        status: "error",
+        message: "Please Log in first!",
+      };
+    }
+    const { data } = await axios.patch(userEP + "/password-update", passInfo, {
+      headers: {
+        Authorization: userId,
+      },
+    });
 
     return data;
   } catch (error) {

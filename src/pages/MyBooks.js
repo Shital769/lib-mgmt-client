@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react"
 import { Button, Container, Row, Table } from "react-bootstrap"
 import { toast } from "react-toastify"
-import DashboardLayout from "../components/layout/DashboardLayout"
-import { getBorrowedBooks, returnBook } from "../helpers/axiosHelper"
+import DashboardLayout from "../components/Layout/DashboardLayout"
+import { getBorrowedBooks, returnBook } from "../helpers/axiosHelpers"
 
 const MyBooks = () => {
   const [books, setBooks] = useState([])

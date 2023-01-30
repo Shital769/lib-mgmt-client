@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 const Sidebar = ({ currentUser }) => {
+  console.log(currentUser);
   return (
     <div className="sidebar bg-info">
       <div className="top">
@@ -35,7 +36,7 @@ const Sidebar = ({ currentUser }) => {
                 </Link>
               </li>
               <li>
-                <Link to="/" className="link">
+                <Link to="/transactions" className="link">
                   <i className="fa-solid fa-left-right"></i>
                   <span>Transactions</span>
                 </Link>

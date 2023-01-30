@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from "react"
-import { Container, Row, Table } from "react-bootstrap"
-import DashboardLayout from "../components/layout/DashboardLayout"
-import { getAllTransactions } from "../helpers/axiosHelper"
+import React, { useEffect, useState } from "react";
+import { Container, Row, Table } from "react-bootstrap";
+import DashboardLayout from "../components/Layout/DashboardLayout";
+import { getAllTransactions } from "../helpers/axiosHelpers";
 
 const Transactions = () => {
-  const [transactions, setTransactions] = useState([])
+  const [transactions, setTransactions] = useState([]);
   const fetchTransactions = async () => {
-    const res = await getAllTransactions()
-    setTransactions(res)
-  }
+    const res = await getAllTransactions();
+    console.log(res);
+    setTransactions(res);
+  };
   useEffect(() => {
-    fetchTransactions()
-  }, [])
+    fetchTransactions();
+  }, []);
   return (
     <DashboardLayout>
       <Container>
@@ -29,7 +30,7 @@ const Transactions = () => {
               </tr>
             </thead>
             <tbody>
-              {transactions.map((transaction, i) => (
+              {transactions?.map((transaction, i) => (
                 <tr key={transaction._id} className="text-center">
                   <td>{i + 1}</td>
                   <td style={{ width: "15%" }}>
@@ -61,7 +62,7 @@ const Transactions = () => {
         </Row>
       </Container>
     </DashboardLayout>
-  )
-}
+  );
+};
 
-export default Transactions
+export default Transactions;

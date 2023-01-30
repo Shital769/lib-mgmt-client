@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
-import { borrowBook, deleteBook } from "../helpers/axiosHelper";
+import { borrowBook, deleteBook } from "../helpers/axiosHelpers";
 import { toast } from "react-toastify";
 
 const BookCard = ({ book, fetchBooks }) => {
